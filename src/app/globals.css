@@ -1,12 +1,13 @@
 :root {
-  --background: #000000;
+  --background: #050B14;
   --navy: #0A192F;
   --accent: #00BFFF;
   --foreground: #ffffff;
   --glass: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);
-  --neon-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+  --neon-shadow: 0 0 15px rgba(0, 191, 255, 0.4);
   --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -23,6 +24,8 @@ body {
   color: var(--foreground);
   font-family: var(--font-primary);
   scroll-behavior: initial; /* Lenis handles this */
+  letter-spacing: -0.01em;
+  line-height: 1.6;
 }
 
 body {
@@ -47,8 +50,8 @@ body {
 
 .glass-card:hover {
   border-color: var(--accent);
-  box-shadow: var(--neon-shadow);
-  transform: translateY(-5px);
+  box-shadow: 0 10px 30px -10px rgba(0, 191, 255, 0.2);
+  transform: translateY(-8px);
 }
 
 /* Custom Scrollbar */
@@ -69,9 +72,23 @@ body {
   background: var(--accent);
 }
 
-/* Text Glow */
+/* Text Glow & Gradient */
 .text-glow {
-  text-shadow: 0 0 10px rgba(0, 191, 255, 0.8), 0 0 20px rgba(0, 191, 255, 0.3);
+  text-shadow: 0 0 10px rgba(0, 191, 255, 0.4), 0 0 20px rgba(0, 191, 255, 0.1);
+}
+
+.heading-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #00BFFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.03em;
+  line-height: 1.1;
 }
 
 /* Section Spacing */

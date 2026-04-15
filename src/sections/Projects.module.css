@@ -1,0 +1,208 @@
+.projects {
+  padding: 100px 0;
+  background: linear-gradient(180deg, #050B14 0%, #0A192F 100%);
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.title {
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 60px;
+  letter-spacing: -2px;
+  color: var(--foreground);
+  text-shadow: 
+    0 0 15px rgba(0, 191, 255, 0.3),
+    0 0 30px rgba(0, 191, 255, 0.1);
+}
+
+.filterContainer {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 50; /* Ensure buttons are above any background effects */
+}
+
+.filterBtn {
+  padding: 8px 20px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #a0a0a0;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+}
+
+.filterBtn:hover {
+  background: rgba(0, 191, 255, 0.1);
+  border-color: rgba(0, 191, 255, 0.4);
+  color: var(--foreground);
+}
+
+.activeFilterBtn {
+  padding: 8px 24px;
+  border-radius: 30px;
+  background: rgba(0, 191, 255, 0.2);
+  border: 1px solid var(--accent);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  grid-auto-flow: dense;
+}
+
+.projectCard {
+  height: 100%;
+}
+
+.cardInternal {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: rgba(10, 25, 47, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.projectCard:hover .cardInternal {
+  border-color: rgba(0, 191, 255, 0.6);
+  background: rgba(10, 25, 47, 0.6);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 0 40px rgba(0, 191, 255, 0.3);
+}
+
+.imageContainer {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.projectCard:hover .image {
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 25, 47, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.projectCard:hover .overlay {
+  opacity: 1;
+}
+
+.projectLinks {
+  display: flex;
+  gap: 15px;
+}
+
+.iconButton {
+  width: 45px;
+  height: 45px;
+  background: var(--accent);
+  color: var(--background);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.iconButton:hover {
+  transform: scale(1.2);
+}
+
+.projectContent {
+  padding: 25px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.projectTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--foreground);
+}
+
+.projectDescription {
+  font-size: 1rem;
+  color: #a0a0a0;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.techBadge {
+  padding: 4px 10px;
+  background: rgba(0, 191, 255, 0.05);
+  border: 1px solid rgba(0, 191, 255, 0.2);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .projects {
+    padding: 60px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .projectCard {
+    max-width: 450px;
+    margin: 0 auto;
+  }
+
+  .title {
+    margin-bottom: 30px;
+  }
+}
